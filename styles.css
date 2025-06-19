@@ -132,9 +132,11 @@ h1, h2, h3 {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     background: radial-gradient(ellipse at center, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
     overflow: hidden;
+    padding: 0 20px;
 }
 
 .hero-content {
@@ -143,6 +145,9 @@ h1, h2, h3 {
     gap: 4rem;
     align-items: center;
     z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .hero-title {
@@ -177,6 +182,7 @@ h1, h2, h3 {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-top: 1rem;
 }
 
 .btn {
@@ -673,6 +679,11 @@ h1, h2, h3 {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
+        padding: 0 10px;
+    }
+
+    .hero {
+        padding: 0 10px;
     }
 
     .intro-content {
