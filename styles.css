@@ -653,6 +653,17 @@ h1, h2, h3 {
     text-align: center;
 }
 
+.powered-by {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.powered-by span {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
