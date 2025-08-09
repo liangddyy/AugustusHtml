@@ -66,7 +66,32 @@ const observeElements = () => {
 };
 
 // 初始化滚动动画
-document.addEventListener('DOMContentLoaded', observeElements);
+document.addEventListener('DOMContentLoaded', () => {
+    observeElements();
+    setupMemberCardHoverEffects();
+});
+
+// 队员卡片悬停效果
+const setupMemberCardHoverEffects = () => {
+    const memberCards = document.querySelectorAll('.member-card');
+    
+    memberCards.forEach((card, index) => {
+        const playerImg = card.querySelector('.player-img');
+        if (playerImg) {
+            const imgSrc = playerImg.getAttribute('src');
+            
+            // 设置卡片的背景图片
+            card.addEventListener('mouseenter', () => {
+                card.style.setProperty('--card-bg-image', `url(${imgSrc})`);
+                card.classList.add('hover-effect');
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('hover-effect');
+            });
+        }
+    });
+};
 
 // 统计数字动画
 const animateStats = () => {
@@ -301,4 +326,4 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('图片加载失败:', img.src);
         });
     });
-}); 
+});

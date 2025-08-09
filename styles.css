@@ -395,6 +395,41 @@ h1, h2, h3 {
     box-shadow: 0 15px 30px rgba(0, 217, 255, 0.2);
 }
 
+.member-card {
+    --card-bg-image: none;
+    transition: all 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.member-card.hover-effect {
+    background-color: rgba(0, 0, 0, 0);
+    transform: translateY(-5px);
+}
+
+.member-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--card-bg-image);
+    background-size: cover;
+    background-position: center 10%; /* 修改这一行修改悬浮背景图位置 */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.member-card.hover-effect::after {
+    opacity: 1;
+}
+
+.member-info, .member-image {
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
 .member-image {
     position: relative;
     margin-bottom: 1.5rem;
@@ -416,6 +451,38 @@ h1, h2, h3 {
     color: white;
 }
 
+.player-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 217, 255, 0.3);
+    transition: all 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    position: relative;
+    z-index: 3;
+}
+
+.player-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.member-card.hover-effect .player-avatar {
+    transform: scale(1.2);
+    box-shadow: 0 8px 25px rgba(0, 217, 255, 0.5);
+    border-width: 4px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.member-card.hover-effect .player-img {
+    transform: scale(1.1);
+}
+
 .member-role {
     background: var(--gradient-secondary);
     color: white;
@@ -424,17 +491,34 @@ h1, h2, h3 {
     font-size: 0.8rem;
     font-weight: 600;
     display: inline-block;
+    position: relative;
+    z-index: 3;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.member-card.hover-effect .member-role {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
 }
 
 .member-info h3 {
     margin-bottom: 0.5rem;
     color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
 .member-info p {
     color: var(--text-secondary);
     margin-bottom: 1rem;
     font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.member-card.hover-effect .member-info {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .member-champions {
@@ -443,6 +527,12 @@ h1, h2, h3 {
     border-radius: 8px;
     font-size: 0.8rem;
     color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.member-card.hover-effect .member-champions {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Highlights Section */
@@ -808,4 +898,4 @@ h1, h2, h3 {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-color);
-} 
+}
